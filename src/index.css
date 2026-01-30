@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+/* ===== THEME VARIABLES ===== */
+/* DARK THEME */
+.theme-dark {
+  --bg-main: #0b0b0b;
+  --bg-section: #141414;
+  --bg-card: #1c1c1c;
+  --text-main: #ffffff;
+  --text-muted: #9ca3af;
+}
+
+/* LIGHT THEME */
+.theme-light {
+  --bg-main: #ffffff;
+  --bg-section: #f3f4f6;
+  --bg-card: #ffffff;
+  --text-main: #111827;
+  --text-muted: #374151; /* darker for clarity */
+}
+
+/* Apply globally */
+.theme-dark,
+.theme-light {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
