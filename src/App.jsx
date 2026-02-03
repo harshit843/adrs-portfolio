@@ -1,26 +1,31 @@
-import { useState } from "react";
-
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import Products from "./pages/Products";
+import Workshops from "./pages/Workshops";
+import Careers from "./pages/Careers";
+import Gallery from "./pages/Gallery";
 import Footer from "./components/Footer";
+import Contact from "./pages/Contact";
 
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Projects from "./sections/Projects";
-import Contact from "./sections/Contact";
-
-function App() {
-  const [theme, setTheme] = useState("dark"); // dark | light
-
+export default function App() {
   return (
-    <div className={theme === "dark" ? "theme-dark" : "theme-light"}>
-      <Navbar theme={theme} setTheme={setTheme} />
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
+    <>
+      <Navbar />
+      <div > 
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/workshops" element={<Workshops />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
-
-export default App;

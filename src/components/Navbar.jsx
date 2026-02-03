@@ -1,36 +1,61 @@
-import { motion } from "framer-motion";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
-function Navbar({ theme, setTheme }) {
+export default function Navbar() {
   return (
-    <motion.nav
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 w-full backdrop-blur px-10 py-4 flex justify-between items-center z-50"
-      style={{
-        backgroundColor: "var(--bg-card)",
-        color: "var(--text-main)",
-      }}
-    >
-      <h1 className="text-xl font-bold">ADRS</h1>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+      <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
 
-      <div className="flex items-center gap-6 text-sm">
-        <a href="#home" className="hover:opacity-70">Home</a>
-        <a href="#about" className="hover:opacity-70">About</a>
-        <a href="#projects" className="hover:opacity-70">Projects</a>
-        <a href="#contact" className="hover:opacity-70">Contact</a>
+        {/* Logo */}
+        <h1 className="text-2xl font-bold text-purple-500">
+          ADRS
+        </h1>
 
-        <button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="ml-4 p-2 rounded-full transition"
-          style={{ backgroundColor: "var(--bg-section)" }}
-        >
-          {theme === "dark" ? <FaSun /> : <FaMoon />}
-        </button>
+        {/* Links */}
+        <div className="flex gap-6 text-sm font-medium">
+          <NavLink to="/" className={({ isActive }) =>
+            isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
+          }>
+            Home
+          </NavLink>
+
+          <NavLink to="/services" className={({ isActive }) =>
+            isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
+          }>
+            Services
+          </NavLink>
+
+          <NavLink to="/products" className={({ isActive }) =>
+            isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
+          }>
+            Products
+          </NavLink>
+
+          <NavLink to="/workshops" className={({ isActive }) =>
+            isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
+          }>
+            Workshops
+          </NavLink>
+
+          <NavLink to="/gallery" className={({ isActive }) =>
+            isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
+          }>
+            Gallery
+          </NavLink>
+
+          <NavLink to="/careers" className={({ isActive }) =>
+            isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
+          }>
+            Careers
+          </NavLink>
+
+          <NavLink to="/contact" className={({ isActive }) =>
+            isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
+          }>
+            Contact
+          </NavLink>
+        </div>
+
       </div>
-    </motion.nav>
+    </nav>
   );
 }
-
-export default Navbar;

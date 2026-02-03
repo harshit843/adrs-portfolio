@@ -39,6 +39,35 @@ function Hero() {
         </motion.a>
       </div>
     </section>
+    <section className="py-24 bg-black">
+  <h2 className="text-center text-4xl font-bold mb-14">
+    Our <span className="text-purple-500">Impact</span>
+  </h2>
+
+  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <div className="bg-[#111] rounded-2xl p-10 text-center shadow-lg">
+      <h3 className="text-4xl font-bold text-purple-500 mb-2">117+</h3>
+      <p className="text-gray-400">Projects Completed</p>
+    </div>
+
+    <div className="bg-[#111] rounded-2xl p-10 text-center shadow-lg">
+      <h3 className="text-4xl font-bold text-purple-500 mb-2">50+</h3>
+      <p className="text-gray-400">Happy Clients</p>
+    </div>
+
+    <div className="bg-[#111] rounded-2xl p-10 text-center shadow-lg">
+      <h3 className="text-4xl font-bold text-purple-500 mb-2">10+</h3>
+      <p className="text-gray-400">Team Members</p>
+    </div>
+
+    <div className="bg-[#111] rounded-2xl p-10 text-center shadow-lg">
+      <h3 className="text-4xl font-bold text-purple-500 mb-2">2024</h3>
+      <p className="text-gray-400">Founded</p>
+    </div>
+
+  </div>
+</section>
   );
 }
 
