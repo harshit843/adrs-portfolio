@@ -1,17 +1,32 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    if (user) {
+      navigate("/dashboard");
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
 
-        {/* Logo */}
-        <h1 className="text-2xl font-bold text-purple-500">
+        {/* LOGO (CLICKABLE) */}
+        <h1
+          onClick={handleLogoClick}
+          className="text-2xl font-bold text-purple-500 cursor-pointer"
+        >
           ADRS
         </h1>
 
-        {/* Links */}
-        <div className="flex gap-6 text-sm font-medium">
+        {/* LINKS */}
+        <div className="flex gap-6 text-sm font-medium items-center">
           <NavLink to="/" className={({ isActive }) =>
             isActive ? "text-purple-500" : "text-gray-300 hover:text-purple-400"
           }>
@@ -53,6 +68,23 @@ export default function Navbar() {
           }>
             Contact
           </NavLink>
+
+          {/* AUTH BUTTON */}
+          {user ? (
+            <button
+              onClick={logout}
+              className="ml-4 px-4 py-1.5 rounded-md bg-red-500 text-white hover:bg-red-600 transition"
+            >
+              Logout
+            </button>
+          ) : (
+            <NavLink
+              to="/login"
+              className="ml-4 px-4 py-1.5 rounded-md bg-purple-500 text-white hover:bg-purple-600 transition"
+            >
+              Login
+            </NavLink>
+          )}
         </div>
 
       </div>

@@ -129,13 +129,12 @@ export default function Home() {
           ADRS Techno
         </h3>
         <p className="text-gray-400 mb-2">
-          adrstechno@gmail.com | +91 XXXXX XXXXX
+          support@adrstechno.com | +91 9076927464
         </p>
         <p className="text-gray-500 text-sm">
           © {new Date().getFullYear()} ADRS Techno. All rights reserved.
         </p>
       </footer>
-
     </div>
   );
 }
